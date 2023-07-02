@@ -46,17 +46,16 @@ def main():
                                    attachments=message)
 
         # Check if our Smart Group already exists - Create it if it doesn't
-        computer_groups_raw = jamf_client.get_computer_groups()
-        computer_groups = [group['name'] for group in computer_groups_raw]
-
         group_name = f"Patch Mgmt - {jai_info['app_name']}"
-        if group_name not in computer_groups:
+        group_response = jamf_client.get_computer_group(name=group_name)
+
+        if 'Error' not in group_response:
+            group_id = group_response['computer_group']['id']
+        else:
             group_config = helpers.parse_group_xml('./smart_group.xml', group_name,
                                                    jai_info["bundle_id"])
 
             group_id = jamf_client.create_computer_group(group_config)['id']
-        else:
-            group_id = [group for group in computer_groups_raw if group['name'] == group_name][0]['id']
 
         # Configure and deploy our App Installer
         jamf_client.deploy_app_installer(jai_info["app_name"], jai_info["jai_id"],

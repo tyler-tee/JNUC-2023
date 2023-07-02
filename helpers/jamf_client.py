@@ -146,6 +146,26 @@ class JamfClient:
             print('Failed to retrieve records')
             return [{'Error': f'Failed to retrieve records - {response.status_code}'}]
 
+    def get_computer_group(self, name: str = None, id: int = None):
+        """
+        Retrieve a Computer Group by name or ID - Must supply one or the other.
+        """
+
+        if name:
+            uri = f'/name/{name}'
+        elif id:
+            uri = f'/name/{id}'
+        else:
+            return None
+
+        response = self.session.get(f'{self.base_url_classic}/computergroups/{uri}')
+
+        if response.status_code == 200:
+            return response.json()
+        else:
+            print('Computer gruop retrieval failed!')
+            return {'Error': f'Failed to retrieve computer group - {response.status_code}'}
+
     def get_computer_groups(self) -> List:
         """
         Return a list of all computer groups.
