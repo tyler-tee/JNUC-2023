@@ -1,0 +1,86 @@
+[
+  {
+    "blocks": [
+      {
+        "type": "header",
+        "text": {
+          "type": "plain_text",
+          "text": "App Installer Suggestion",
+          "emoji": true
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "An application has been detected in your environment with an installation prevalence of >25%. An App Installer is available but unused."
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "Would you like me to configure this App Installer and initiate deployment?"
+        }
+      },
+      {
+        "type": "section",
+        "fields": [
+          {
+            "type": "mrkdwn",
+            "text": "*Title:* {APP_NAME_PLACEHOLDER}"
+          },
+          {
+            "type": "mrkdwn",
+            "text": "*Bundle ID:* {BUNDLE_ID_PLACEHOLDER}"
+          },
+          {
+            "type": "mrkdwn",
+            "text": "*Total Installs:* {TOTAL_INSTALLS_PLACEHOLDER}"
+          }
+        ]
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "actions",
+        "elements": [
+          {
+            "type": "button",
+            "text": {
+              "type": "plain_text",
+              "emoji": true,
+              "text": "Deploy"
+            },
+            "style": "primary",
+            "value": "deploy_{APP_NAME_PLACEHOLDER}_{BUNDLE_ID_PLACEHOLDER}_{JAI_ID_PLACEHOLDER}",
+            "action_id": "deploy_{APP_NAME_PLACEHOLDER}_{BUNDLE_ID_PLACEHOLDER_{JAI_ID_PLACEHOLDER}"
+          },
+          {
+            "type": "button",
+            "text": {
+              "type": "plain_text",
+              "emoji": true,
+              "text": "Postpone"
+            },
+            "value": "postpone_{BUNDLE_ID_PLACEHOLDER}",
+            "action_id": "postpone_{BUNDLE_ID_PLACEHOLDER}"
+          },
+          {
+            "type": "button",
+            "text": {
+              "type": "plain_text",
+              "emoji": true,
+              "text": "Ignore"
+            },
+            "style": "danger",
+            "value": "ignore_{BUNDLE_ID_PLACEHOLDER}",
+            "action_id": "ignore_{BUNDLE_ID_PLACEHOLDER}"
+          }
+        ],
+        "block_id": "app_installer_deploy"
+      }
+    ]
+  }
+]

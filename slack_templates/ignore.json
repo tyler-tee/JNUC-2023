@@ -1,0 +1,35 @@
+[
+  {
+    "blocks": [
+        {
+          "type": "header",
+          "text": {
+            "type": "plain_text",
+            "text": "App Installer Suggestion",
+            "emoji": true
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "Got it! {USER_PLACEHOLDER} has chosen to ignore deployment of {APP_NAME_PLACEHOLDER}."
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "The corresponding bundle ID has been added to the appropriate Tines resource to suppress future notifications."
+          }
+        },
+        {
+          "type": "section",
+          "text": {
+            "type": "mrkdwn",
+            "text": "If this was a mistake, please visit <{JAMF_SERVER_PLACEHOLDER} | Mac Apps> to enable or manage the aforementioned deployment."
+          }
+        }
+      ]
+    }
+  ]

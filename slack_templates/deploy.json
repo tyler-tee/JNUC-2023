@@ -1,0 +1,28 @@
+[
+  {
+    "blocks": [
+      {
+        "type": "header",
+        "text": {
+          "type": "plain_text",
+          "text": "App Installer Suggestion",
+          "emoji": true
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "Great! <@{USER_PLACEHOLDER}> has initiated deployment of {APP_NAME_PLACEHOLDER}. Configuration and distribution is underway."
+        }
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "mrkdwn",
+          "text": "If this was a mistake, please visit <{JAMF_SERVER_PLACEHOLDER} | Mac Apps> to disable or manage the aforementioned deployment."
+        }
+      }
+    ]
+  }
+]
