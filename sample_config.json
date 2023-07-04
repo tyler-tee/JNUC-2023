@@ -1,0 +1,8 @@
+{
+    "install_threshold": 0.25,
+    "jamf_server": "sampleinstance.jamfcloud.com",
+    "jamf_user": "",
+    "jamf_pass": "",
+    "slack_token": "",
+    "slack_channel_id": ""
+}
