@@ -1,7 +1,10 @@
 helpers/__pycache__/
 Scratch/
 *.csv
+*.pyc
 config.json
 applications.json
 installed_apps_raw.json
 scratch.ipynb
+automations/.DS_Store
+.DS_Store

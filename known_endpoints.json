@@ -1,0 +1,245 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Jamf Pro API",
+    "description": "## Overview\nThe Jamf Pro API is a RESTful API for Jamf Pro built to enable consistent and efficient programmatic access to Jamf Pro.\u003Cbr/\u003E\u003Cbr/\u003E\nThe swagger schema can be found [here](/api/schema/).\n",
+    "termsOfService": "https://www.jamf.com/developer-resources/api-license-agreement/",
+    "version": "production"
+  },
+  "servers": [
+    {
+      "url": "/api"
+    }
+  ],
+  "security": [
+    {
+      "Bearer": []
+    }
+  ],
+  "paths": {
+    "/v1/app-installers/titles/": {
+      "get": {
+        "tags": [
+          "app-installer-titles"
+        ],
+        "summary": "Get all available App Instalers from the Jamf Pro App Catalog\n",
+        "description": "Get all available App Instalers from the Jamf Pro App Catalog\n",
+        "responses": {
+          "200": {
+            "description": "All App Installers that are present in the Jamf Pro App Catalog.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": ""
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-authentication-required": true,
+        "x-action": true
+      }
+    },
+    "/v1/app-installers/titles/{TITLE_ID}": {
+      "get": {
+        "tags": [
+          "app-installer-titles"
+        ],
+        "summary": "Get details for a particular App Installer.\n",
+        "description": "Get details for a particular App Installer by supplying its ID.\n",
+        "responses": {
+          "200": {
+            "description": "Details for a particular App Installer.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": ""
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-authentication-required": true,
+        "x-action": true
+      }
+    },
+    "/v1/app-installers/deployments": {
+      "get": {
+        "tags": [
+          "app-installer-deployments"
+        ],
+        "summary": "Get all App Installer deployments for a Jamf Pro instance.\n",
+        "description": "Get all App Installer deployments for a Jamf Pro instance.\n",
+        "responses": {
+          "200": {
+            "description": "Deployments that have been configured for a particular Jamf Pro instance.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": ""
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-authentication-required": true,
+        "x-action": true
+      }
+    },
+    "/v1/app-installers/deployments/{DEPLOYMENT_ID}": {
+      "get": {
+        "tags": [
+          "app-installer-deployments"
+        ],
+        "summary": "Get details for a particular App Installer deployment.\n",
+        "description": "Get details for a particular App Installer deployment by providing its ID.\n",
+        "responses": {
+          "200": {
+            "description": "Details for a particular App Installer deployment.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": ""
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-authentication-required": true,
+        "x-action": true
+      }
+    },
+    "/v1/app-installers/deployments/{DEPLOYMENT_ID}/computers": {
+      "get": {
+        "tags": [
+          "app-installer-deployments"
+        ],
+        "summary": "Get a system-level summary for a particular App Installer deployment.\n",
+        "description": "Get a system-level summary for a particular App Installer deployment by providing its ID.\n",
+        "responses": {
+          "200": {
+            "description": "System details for an App Installer deployment.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": ""
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-authentication-required": true,
+        "x-action": true
+      }
+    },
+    "/v1/app-installers/deployments/{DEPLOYMENT_ID}/installation-summary": {
+      "get": {
+        "tags": [
+          "app-installer-deployments"
+        ],
+        "summary": "Get the installation summary for a particular App Installer deployment.\n",
+        "description": "Get the installation summary for a particular App Installer deployment by providing its ID.\n",
+        "responses": {
+          "200": {
+            "description": "Insatllation summary for a particular App Installer deployment.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": ""
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-authentication-required": true,
+        "x-action": true
+      }
+    },
+    "/v1/app-installers/deployments/{DEPLOYMENT_ID}/computers/installation-retry": {
+      "post": {
+        "tags": [
+          "app-installer-deployments"
+        ],
+        "summary": "Retry failed App Installer installations.\n",
+        "description": "Issue a RETRY for failed App Installer installations for a deployment by providing its ID.\n",
+        "responses": {
+          "204": {
+            "description": "Status indicating success or failure of the issued retry command.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": ""
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-authentication-required": true,
+        "x-action": true
+      }
+    },
+    "/v1/app-installers/deployments/{DEPLOYMENT_ID}/computers/{COMPUTER_ID}/installation-retry": {
+      "post": {
+        "tags": [
+          "app-installer-deployments"
+        ],
+        "summary": "Retry a failed App Installer installation for a single system.\n",
+        "description": "Retry a failed App Installer installation for a single system using a set of deployment and computer ID's.\n",
+        "responses": {
+          "204": {
+            "description": "Status indicating success or failure of the issued retry command.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": ""
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ],
+        "x-authentication-required": true,
+        "x-action": true
+      }
+    }
+  }
+}
