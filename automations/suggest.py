@@ -27,7 +27,9 @@ def main():
 
     # Retrieve all deployed App Installers and parse their bundle ID's
     deployed_jais = jamf_client.get_deployed_app_installers()
-    deployed_jai_deets = [jamf_client.get_app_installer_details(jai["appTitleId"]) for jai in deployed_jais["results"]]
+    deployment_deets = [jamf_client.get_deployment_details(jai["id"]) for jai in deployed_jais]
+    deployed_jai_deets = [jamf_client.get_app_installer_details(jai["appTitleId"]) for jai
+                          in deployment_deets]
     deployed_bundle_ids = [jai["bundleId"] for jai in deployed_jai_deets]
 
     # Get rid of bundle ID's associated with deployed App Installers
