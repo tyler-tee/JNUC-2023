@@ -1,10 +1,9 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Jamf Pro API",
-    "description": "## Overview\nThe Jamf Pro API is a RESTful API for Jamf Pro built to enable consistent and efficient programmatic access to Jamf Pro.\u003Cbr/\u003E\u003Cbr/\u003E\nThe swagger schema can be found [here](/api/schema/).\n",
-    "termsOfService": "https://www.jamf.com/developer-resources/api-license-agreement/",
-    "version": "production"
+    "title": "App Installer Endpoints",
+    "description": "## Overview\nThese endpoints allow one to programmatically interact with Jamf Pro App Installers and their deployments.\n",
+    "version": "development"
   },
   "servers": [
     {
