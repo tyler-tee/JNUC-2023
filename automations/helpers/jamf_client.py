@@ -93,11 +93,28 @@ class JamfClient:
         else:
             print("Error retrieving App Installers",
                   response.status_code,
-                  response.content)
+                  response.content)    
 
     def get_deployment_details(self, deployment_id: str):
         """
         Retrieve details for a single App Installer deployment.
+        """
+
+        deployment_uri = f'/v1/app-installers/deployments/{deployment_id}'
+
+        response = self.session.get(f'{self.base_url}{deployment_uri}')
+
+        if response.status_code == 200:
+            return response.json()
+
+        else:
+            print("Error retrieving deployments",
+                  response.status_code,
+                  response.content)
+
+    def get_installation_summary(self, deployment_id: str):
+        """
+        Retrieve installation summary for a single App Installer deployment.
         """
 
         deployment_uri = f'/v1/app-installers/deployments/{deployment_id}/installation-summary'
