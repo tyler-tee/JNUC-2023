@@ -52,6 +52,17 @@
         ],
         "summary": "Get details for a particular App Installer.\n",
         "description": "Get details for a particular App Installer by supplying its ID.\n",
+        "parameters" : [ {
+          "name" : "TITLE_ID",
+          "in" : "path",
+          "description" : "ID of the App Installer (can be obtained from /v1/app-installers/titles).",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }],
         "responses": {
           "200": {
             "description": "Details for a particular App Installer.",
@@ -108,6 +119,17 @@
         ],
         "summary": "Get details for a particular App Installer deployment.\n",
         "description": "Get details for a particular App Installer deployment by providing its ID.\n",
+        "parameters" : [ {
+          "name" : "DEPLOYMENT_ID",
+          "in" : "path",
+          "description" : "ID of the App Installer deployment (can be obtained from /v1/app-installers/deployments).",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }],
         "responses": {
           "200": {
             "description": "Details for a particular App Installer deployment.",
@@ -136,6 +158,17 @@
         ],
         "summary": "Get a system-level summary for a particular App Installer deployment.\n",
         "description": "Get a system-level summary for a particular App Installer deployment by providing its ID.\n",
+        "parameters" : [ {
+          "name" : "DEPLOYMENT_ID",
+          "in" : "path",
+          "description" : "ID of the App Installer deployment (can be obtained from /v1/app-installers/deployments).",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }],
         "responses": {
           "200": {
             "description": "System details for an App Installer deployment.",
@@ -164,6 +197,17 @@
         ],
         "summary": "Get the installation summary for a particular App Installer deployment.\n",
         "description": "Get the installation summary for a particular App Installer deployment by providing its ID.\n",
+        "parameters" : [ {
+          "name" : "DEPLOYMENT_ID",
+          "in" : "path",
+          "description" : "ID of the App Installer deployment (can be obtained from /v1/app-installers/deployments).",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }],
         "responses": {
           "200": {
             "description": "Insatllation summary for a particular App Installer deployment.",
@@ -192,6 +236,17 @@
         ],
         "summary": "Retry failed App Installer installations.\n",
         "description": "Issue a RETRY for failed App Installer installations for a deployment by providing its ID.\n",
+        "parameters" : [ {
+          "name" : "DEPLOYMENT_ID",
+          "in" : "path",
+          "description" : "ID of the App Installer deployment (can be obtained from /v1/app-installers/deployments).",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }],
         "responses": {
           "204": {
             "description": "Status indicating success or failure of the issued retry command.",
@@ -220,6 +275,28 @@
         ],
         "summary": "Retry a failed App Installer installation for a single system.\n",
         "description": "Retry a failed App Installer installation for a single system using a set of deployment and computer ID's.\n",
+        "parameters" : [ {
+          "name" : "DEPLOYMENT_ID",
+          "in" : "path",
+          "description" : "ID of the App Installer deployment (can be obtained from /v1/app-installers/deployments).",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        },
+        {
+          "name" : "COMPUTER_ID",
+          "in" : "path",
+          "description" : "ID of the Computer for which installation should be retried.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        }],
         "responses": {
           "204": {
             "description": "Status indicating success or failure of the issued retry command.",
