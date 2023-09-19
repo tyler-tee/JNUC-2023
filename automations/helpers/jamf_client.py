@@ -93,7 +93,7 @@ class JamfClient:
         else:
             print("Error retrieving App Installers",
                   response.status_code,
-                  response.content)    
+                  response.content)
 
     def get_deployment_details(self, deployment_id: str):
         """
