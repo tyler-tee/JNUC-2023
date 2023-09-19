@@ -23,12 +23,6 @@ Get all available App Instalers from the Jamf Pro App Catalog.
 **Response**
 
 ```
-// Available App Installer titles
-{
-    "data": {
-        "subscriptions": []
-    }
-}
 
 ```
 
@@ -46,12 +40,6 @@ Get details for a particular App Installer by supplying its ID.
 **Response**
 
 ```
-// Available App Installer titles
-{
-    "data": {
-        "subscriptions": []
-    }
-}
 
 ```
 ___
@@ -62,12 +50,6 @@ Get all deployed App Installers (enabled or not) from your Jamf Pro instance.
 **Response**
 
 ```
-// Available App Installer titles
-{
-    "data": {
-        "subscriptions": []
-    }
-}
 
 ```
 
@@ -85,12 +67,6 @@ Get details for a particular App Installer deployment by supplying the correspon
 **Response**
 
 ```
-// Available App Installer titles
-{
-    "data": {
-        "subscriptions": []
-    }
-}
 
 ```
 ___
@@ -108,12 +84,6 @@ Get a system-level summary for a particular App Installer deployment.
 **Response**
 
 ```
-// Available App Installer titles
-{
-    "data": {
-        "subscriptions": []
-    }
-}
 
 ```
 ___
@@ -131,12 +101,6 @@ Get the installation summary for a particular App Installer deployment.
 **Response**
 
 ```
-// Available App Installer titles
-{
-    "data": {
-        "subscriptions": []
-    }
-}
 
 ```
 ___
@@ -154,12 +118,6 @@ Issue a RETRY for failed App Installer installations for a deployment by providi
 **Response**
 
 ```
-// Available App Installer titles
-{
-    "data": {
-        "subscriptions": []
-    }
-}
 
 ```
 ___
@@ -173,16 +131,9 @@ Retry a failed App Installer installation for a single system.
 |          Name | Required |  Type   | Description                                                                                                                                                           |
 | -------------:|:--------:|:-------:| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |    `DEPLOYMENT_ID` | true | string  | Can be retrieved using /v1/app-installers/deployments/         |
+|    `COMPUTER_ID` | true | string  | ID used to identify Computer in Jamf Pro.         |
                                                                    
 **Response**
-
 ```
-// Available App Installer titles
-{
-    "data": {
-        "subscriptions": []
-    }
-}
-
 ```
 ___
