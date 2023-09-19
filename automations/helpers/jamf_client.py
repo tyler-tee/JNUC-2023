@@ -32,6 +32,27 @@ class JamfClient:
             print('Authentication failed!')
             return False
 
+    def authenticate_api_client(self) -> str:
+        """
+        Authenticate to Jamf Pro API using id and secret supplied on instantiation.
+        """
+
+        payload = {
+                "client_id": self.username,
+                "client_secret": self.password,
+                "grant_type": "client_credentials"
+                }
+
+        response = self.session.post(f'{self.base_url}/oauth/token',
+                                     json=payload)
+
+        if response.status_code == 200:
+            self.session.headers['Authorization'] = f'Bearer {response.json()["access_token"]}'
+            return True
+        else:
+            print('Authentication failed!')
+            return False
+
     def get_all_app_installers(self):
         """
         Retrieve a full List of App Installers from the Jamf Pro Catalog.
