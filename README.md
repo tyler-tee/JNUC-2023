@@ -23,7 +23,20 @@ Get all available App Instalers from the Jamf Pro App Catalog.
 **Response**
 
 ```
-
+{
+    "totalCount": integer,
+    "results": [
+        {
+            "id": string,
+            "bundleId": string,
+            "titleName": string,
+            "publisher": string,
+            "iconUrl": string,
+            "version": string
+        },
+        ...
+    ]
+}
 ```
 
 ___
@@ -40,7 +53,33 @@ Get details for a particular App Installer by supplying its ID.
 **Response**
 
 ```
-
+{
+    "id": string,
+    "bundleId": string,
+    "titleName": string,
+    "publisher": string,
+    "iconUrl": string,
+    "version": string,
+    "sizeInBytes": integer,
+    "minimumOsVersion": string,
+    "language": string,
+    "availabilityDate": string,
+    "packageSigningIdentity": string,
+    "installerPackageHashType": string,
+    "installerPackageHash": string,
+    "shortVersion": string,
+    "architecture": string,
+    "originalMediaSources": [
+        {
+        "hashType": string,
+        "hash": string,
+        "url": string
+        }
+    ],
+    "launchDaemonIncluded": boolean,
+    "notificationAvailable": boolean,
+    "suppressAutoUpdate": boolean
+    }
 ```
 ___
 
@@ -50,7 +89,41 @@ Get all deployed App Installers (enabled or not) from your Jamf Pro instance.
 **Response**
 
 ```
-
+{
+    "totalCount": integer,
+    "results": [
+        {
+            "id": string,
+            "name": string,
+            "enabled": boolean,
+            "selectedVersion": string,
+            "latestVersion": string,
+            "deploymentType": string,
+            "updateBehavior": string,
+            "site": {
+                "id": string,
+                "name": string
+            },
+            "smartGroup": {
+                "id": string,
+                "name": string
+            },
+            "category": {
+                "id": string,
+                "name": string
+            },
+            "computerStatuses": {
+                "installed": integer,
+                "available": integer,
+                "inProgress": integer,
+                "failed": integer,
+                "unqualified": integer
+            },
+            "bundleId": string
+        },
+        ...
+    ]
+}
 ```
 
 ___
@@ -67,7 +140,41 @@ Get details for a particular App Installer deployment by supplying the correspon
 **Response**
 
 ```
-
+        {
+            "id": string,
+            "name": string,
+            "enabled": boolean,
+            "appTitleId": string,
+            "deploymentType": string,
+            "updateBehavior": string,
+            "siteId": string,
+            "smartGroupId": string,
+            "installPredefinedConfigProfiles": string,
+            "titleAvailableInAis": boolean
+            "notificationSettings": {
+                "notificationMessage": string,
+                "notificationInterval": integer,
+                "deadlineMessage": string,
+                "deadline": string,
+                "quitDelay": string,
+                "completeMessage": string,
+                "relaunch": boolean
+            },
+            "selfServiceSettings": {
+                "includeInFeaturedCategory": boolean,
+                "includeInComplianceCategory": boolean,
+                "forceViewDescription": boolean,
+                "description": string,
+                "categories": [
+                {
+                    "id": string,
+                    "featured": boolean
+                }
+                ]
+            },
+            "selectedVersion": string,
+            "latestAvailableVersion": string
+        }
 ```
 ___
 
@@ -84,7 +191,18 @@ Get a system-level summary for a particular App Installer deployment.
 **Response**
 
 ```
-
+{
+    "totalCount": integer,
+    "results": [
+    {
+        "id": string,
+        "status": string,
+        "error": string,
+        "retryable": boolean,
+        "computerName": string
+    }
+    ]
+}
 ```
 ___
 
@@ -101,7 +219,13 @@ Get the installation summary for a particular App Installer deployment.
 **Response**
 
 ```
-
+{
+    "installed": integer,
+    "available": integer,
+    "inProgress": integer,
+    "failed": integer,
+    "unqualified": integer
+}
 ```
 ___
 
@@ -118,7 +242,7 @@ Issue a RETRY for failed App Installer installations for a deployment by providi
 **Response**
 
 ```
-
+// Status 204 indicates successful retry submission
 ```
 ___
 
@@ -135,5 +259,6 @@ Retry a failed App Installer installation for a single system.
                                                                    
 **Response**
 ```
+// Status 204 indicates successful retry submission
 ```
 ___
