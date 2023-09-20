@@ -3,23 +3,24 @@
 These endpoints allow you to interact with Jamf Pro App Installers and their deployments programmatically.
 
 ## GET
-[/v1/app-installers/titles/](#app-installers-titles)<br/>
-[/v1/app-installers/titles/{TITLE_ID}](#app-installers-titles-titleid) <br/>
-[/v1/app-installers/deployments](#app-installers-deployments) <br/>
-[/v1/app-installers/deployments/{DEPLOYMENT_ID}](#app-installers-deployments-deployid) <br/>
-[/v1/app-installers/deployments/{DEPLOYMENT_ID}/computers](#app-installers-deployments-computers) <br/>
-[/v1/app-installers/deployments/{DEPLOYMENT_ID}/installation-summary](#app-installers-deployments-install-summary) <br/>
+[/v1/app-installers/titles/](#get-v1app-installerstitles)<br/>
+[/v1/app-installers/titles/{TITLE_ID}](#get-v1app-installerstitlestitle_id) <br/>
+[/v1/app-installers/deployments](#get-v1app-installersdeployments) <br/>
+[/v1/app-installers/deployments/{DEPLOYMENT_ID}](#get-v1app-installersdeploymentsdeployment_id) <br/>
+[/v1/app-installers/deployments/{DEPLOYMENT_ID}/computers](#get-v1app-installersdeploymentsdeployment_idcomputers) <br/>
+[/v1/app-installers/deployments/{DEPLOYMENT_ID}/installation-summary](#get-v1app-installersdeploymentsdeployment_idinstallation-summary) <br/>
 
 
 ## POST
-[/v1/app-installers/deployments/{DEPLOYMENT_ID}/computers/installation-retry](#app-installers-retry) <br/>
-[/v1/app-installers/deployments/{DEPLOYMENT_ID}/computers/{COMPUTER_ID}/installation-retry](#app-installers-computers-retry) <br/>
+[/v1/app-installers/deployments](#post-v1app-installerstitles) <br/>
+[/v1/app-installers/deployments/{DEPLOYMENT_ID}/computers/installation-retry](#post-v1app-installersdeploymentsdeployment_idcomputersinstallation-retry) <br/>
+[/v1/app-installers/deployments/{DEPLOYMENT_ID}/computers/{COMPUTER_ID}/installation-retry](#post-v1app-installersdeploymentsdeployment_idcomputerscomputer_idinstallation-retry) <br/>
 
 ___
 
 ### GET /v1/app-installers/titles/
 Get all available App Instalers from the Jamf Pro App Catalog.
-                                                                   
+
 **Response**
 
 ```
@@ -228,6 +229,43 @@ Get the installation summary for a particular App Installer deployment.
 }
 ```
 ___
+
+### POST /v1/app-installers/deployments
+
+Create a new App Installer deployment.
+
+**Payload**
+
+```
+{
+  "name": "string,
+  "enabled": boolean,
+  "appTitleId": string,
+  "siteId": string,
+  "categoryId": string,
+  "smartGroupId": string,
+  "deploymentType": string // Example: "INSTALL_AUTOMATICALLY",
+  "updateBehavior": string // Example: "AUTOMATIC",
+  "notificationSettings": {
+    "notificationMessage": string,
+    "notificationInterval": integer,
+    "deadlineMessage": string,
+    "deadline": integer,
+    "quitDelay": integer,
+    "completeMessage": string,
+    "relaunch": boolean
+  },
+  "installPredefinedConfigProfiles": boolean
+}
+```
+                                                                   
+**Response**
+
+```
+// Status 200 indicates successful creation of a new App Installer deployment.
+```
+___
+
 
 ### POST /v1/app-installers/deployments/{DEPLOYMENT_ID}/computers/installation-retry
 
